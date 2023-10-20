@@ -11,11 +11,12 @@
 <body>
     <div class="wrapper">
        <h1 class="title">Заметки</h1> 
-       <input type="text" class="input_name" placeholder="Введите название">
+       <input type="text" class="input_name" id="title" placeholder="Введите название">
        <br>
-       <button class="button_name">Добавить</button>
-       <ul class="notes_list" aria-placeholder="Название">
+       <button class="button_name" id="btn_add">Добавить</button>
+       <ul class="notes_list"  id="notes_list" aria-placeholder="Название">
             <li class="list_item">
+                <span class="list_item_text"> Название </span>
                 <span class="two_button">
                     <span class="success">
                         <button class="success_Btn"></button>

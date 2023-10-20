@@ -48,10 +48,16 @@ html{
 .list_item{
     display: flex;
     justify-content: space-between;
-
     height: 48px;
     width: 100%;
     background: white;
+}
+
+.list_item_text{
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+    font-size: 17px;
 }
 
 .two_button{
@@ -59,7 +65,7 @@ html{
     align-items: center;
     gap: 6px;
     right: 0px;
-    margin-left: 567px;
+    padding-right: 5px;
 
 }
 .success_Btn{
@@ -77,5 +83,4 @@ html{
     border: 2px;
     border-radius: 5px;
     background:url(../img/red.svg) no-repeat center;
-    /* background-color: rgb(249, 35, 35); */
 }
