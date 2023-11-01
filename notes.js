@@ -5,57 +5,61 @@ const btnCross=document.getElementById('cross_Btn')
 const listElement = document.getElementById('notes_list')
 
 
-// Create click to success and cross bnt (start)
-/*teory
-const denis = {
-    name: 'Denis',
-    age : 18,
-    wife: 'no',
-    girlfriend: 'yes',
-    getInfo: function () {
-        console.log(denis.name +'\n'+ denis.age)        
-    }
-}
-denis.getInfo()
-*/
-
-let notes =[
+ 
+const notes =[
     {   name: 'Bryan',
-        age: 19,
-        completed: false,
+        completed: true
     },
     {   name: 'Igor',
-        age: 19,
-        completed: true,
-    },]
+        completed: false
+    }]
+// masiv end
 
-    function arrayNotes (arr){
-        for(let i =0 ; i < arr.length; i++ ){
-            listElement.insertAdjacentHTML("beforeend",notes_Template(arr[i]))}
-       }
-
-arrayNotes(notes)
-
-       btnAdd.onclick = function (){
-        if(inputElement.value.length == 0){
-            return
-        }
-        const newPeople= {
-            name: inputElement.value,
-            age: 19,
-            complted: false,
-        }
-        listElement.insertAdjacentHTML
-        ("beforeend",notes_Template(newPeople))
-        inputElement.value=''
+//Create shablon for poocheredno adding masiv elements
+function renderElement(arr){
+    listElement.innerHTML=''
+    for(let i =0 ; i < arr.length; i++ ){
+        listElement.insertAdjacentHTML("beforeend",notes_Template(arr[i], i))
     }
+    }
+//end
+ 
+renderElement(notes)
+
+//Adding elements from the input bar
+ btnAdd.onclick = function (){
+        if(inputElement.value.length == 0){
+        return
+    }
+    const newPeople= {
+        name: inputElement.value,
+        completed: false ,
+    }
+    notes.push(newPeople)
+    renderElement(notes)
+    inputElement.value='' /* clean input bar after btn click */
+}
     
-    function notes_Template (input){
-        return  `<li class="list_item">
-         <span class="list_item_text"> ${input.name } ${input.age }  </span>
-        <span class="two_button">
-            <span class="success">
-                <button class="success_Btn" id="success_Btn"></button></span>
-            <span class="cross">
-                <button class="cross_Btn" id ="cross_Btn"></button></span>
+function notes_Template (input,i){      
+        return `
+        <li class="list_item">
+         <span class="${input.completed ? 'text-decoration-line-through' : ' '}" id="list_item_text"> ${input.name } </span>
+        <span id="two_button">
+            <span id="success">
+                <button class="${input.completed ? 'warning_btn' : 'success_Btn'}" id="success_Btn" data-index="${i}"></button></span>
+            <span id="cross">
+                <button class="cross_Btn" id ="cross_Btn" data-index="${i}"></button></span>
         </span></li>`}
+
+// btnSuccess.onclick= function Success() {
+//     return `
+//         <li class="list_item">
+//          <span class="${input.completed ? 'text-decoration-line-through' : ' '}" id="list_item_text"> ${input.name } </span>
+//         <span id="two_button">
+//             <span id="success">
+//                 <button class="${notes.completed ? 'warning_btn' : 'success_Btn'}" id="success_Btn"></button></span>
+//             <span id="cross">
+//                 <button class="cross_Btn" id ="cross_Btn"></button></span>
+//         </span></li>`
+    
+// }

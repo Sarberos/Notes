@@ -53,14 +53,14 @@ html{
     background: white;
 }
 
-.list_item_text{
+#list_item_text{
     display: flex;
     align-items: center;
     padding-left: 17px;
     font-size: 17px;
 }
 
-.two_button{
+#two_button{
     display: flex;
     align-items: center;
     gap: 6px;
@@ -77,6 +77,15 @@ html{
     background-color: rgb(47, 239, 47) ;
 }
 
+.warning_btn{
+    width: 30px;
+    height: 30px;
+    border: 2px;
+    border-radius: 5px;
+    background:url(../img/green.svg) no-repeat center;
+    background-color: rgb(242, 220, 20) ; 
+}
+
 .cross_Btn{
     width: 30px;
     height: 30px;
@@ -84,3 +93,6 @@ html{
     border-radius: 5px;
     background:url(../img/red.svg) no-repeat center;
 }
+.text-decoration-line-through {
+    text-decoration: line-through;
+  }
